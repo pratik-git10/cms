@@ -88,7 +88,7 @@ const Signin = () => {
       setFocusedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     }
   };
-const handleSubmit = async (e?: React.FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (e?: React.FormEvent<HTMLButtonElement>) => {
     if (e) e.preventDefault();
 
     if (checkingPassword) return; // Prevents further sign-in attempts while the request is being processed
@@ -122,7 +122,7 @@ const handleSubmit = async (e?: React.FormEvent<HTMLButtonElement>) => {
     }
   };
   return (
-    <section className="wrapper relative flex min-h-screen items-center justify-center overflow-hidden antialiased">
+    <section className="wrapper relative mt-10 flex min-h-screen items-center justify-center overflow-hidden antialiased">
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
