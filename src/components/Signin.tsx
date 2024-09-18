@@ -122,7 +122,7 @@ const Signin = () => {
     }
   };
   return (
-    <section className="wrapper relative mt-10 flex min-h-screen items-center justify-center overflow-hidden antialiased">
+    <section className="wrapper relative flex min-h-screen items-center justify-center overflow-hidden antialiased">
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
