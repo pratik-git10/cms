@@ -30,7 +30,7 @@ const heroItems = [
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="mt-24 flex min-h-screen flex-col">
       <main className="flex h-[100vh] flex-col items-center justify-center gap-4">
         {/* Hero */}
         <motion.div
