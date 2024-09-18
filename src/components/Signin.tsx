@@ -88,22 +88,24 @@ const Signin = () => {
       setFocusedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     }
   };
+const handleSubmit = async (e?: React.FormEvent<HTMLButtonElement>) => {
+    if (e) e.preventDefault();
 
-  const handleSubmit = async (e?: React.FormEvent<HTMLButtonElement>) => {
+    if (checkingPassword) return; // Prevents further sign-in attempts while the request is being processed
+
+    setCheckingPassword(true); // Disable button to prevent multiple submissions
     const loadId = toast.loading('Signing in...');
-    if (e) {
-      e.preventDefault();
-    }
 
     if (!email.current || !password.current) {
       setRequiredError({
-        emailReq: email.current ? false : true,
-        passReq: password.current ? false : true,
+        emailReq: !email.current,
+        passReq: !password.current,
       });
       toast.dismiss(loadId);
+      setCheckingPassword(false); // Re-enable the button if validation fails
       return;
     }
-    setCheckingPassword(true);
+
     const res = await signIn('credentials', {
       username: email.current,
       password: password.current,
@@ -115,8 +117,8 @@ const Signin = () => {
       router.push('/');
       toast.success('Signed In');
     } else {
-      toast.error('oops something went wrong..!');
-      setCheckingPassword(false);
+      toast.error('Oops, something went wrong..!');
+      setCheckingPassword(false); // Re-enable the button if login fails
     }
   };
   return (
