@@ -31,7 +31,8 @@ const heroItems = [
 export default function LandingPage() {
   return (
     <div className="mt-24 flex min-h-screen flex-col">
-      <main className="flex h-[100vh] flex-col items-center justify-center gap-4">
+      {/* gap given */}
+      <main className="flex h-[100vh] flex-col items-center justify-center gap-5">
         {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
